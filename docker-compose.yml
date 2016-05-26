@@ -1,0 +1,54 @@
+rabbitmq:
+  image: rabbitmq:3-management
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+
+influx:
+  image: tutum/influxdb
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+
+serializer:
+  build: serializer
+  links:
+    - rabbitmq
+    - influx
+  restart: always
+  environment:
+    AMQP_URL: amqp://guest:guest@rabbitmq:5672
+    INFLUX_HOST: influx
+
+broker:
+  build: broker
+  ports:
+    - "1883:1883"
+  links:
+    - rabbitmq
+  restart: always
+  environment:
+    AMQP_URL: amqp://guest:guest@rabbitmq:5672
+
+actuator:
+  build: actuator
+  links:
+    - rabbitmq
+    - broker
+  restart: always
+  environment:
+    AMQP_URL: amqp://guest:guest@rabbitmq:5672
+    BROKER_HOST: broker
+
+api:
+  build: api
+  ports:
+    - "3000:3000"
+  links:
+    - rabbitmq
+  restart: always
+  environment:
+    API_PORT: 3000
+    AMQP_URL: amqp://guest:guest@rabbitmq:5672
+
+

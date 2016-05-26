@@ -1,0 +1,17 @@
+{
+  "name": "nubiot-api",
+  "version": "0.0.1",
+  "description": "Nubiot devices API",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Lizarraga",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "seneca": "^2.0.1",
+    "validator": "^5.2.0",
+    "seneca-amqp-transport": "^0.2.2"
+  }
+}

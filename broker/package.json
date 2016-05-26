@@ -1,0 +1,16 @@
+{
+  "name": "broker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "broker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Lizarraga",
+  "license": "ISC",
+  "dependencies": {
+    "mosca": "^1.3.0",
+    "seneca": "^2.0.1",
+    "seneca-amqp-transport": "^0.2.2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "serializer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serializer.js",
+  "dependencies": {
+    "influx": "^4.2.0",
+    "seneca": "^2.1.0",
+    "seneca-amqp-transport": "^0.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Lizarraga",
+  "license": "ISC"
+}
